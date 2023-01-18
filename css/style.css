@@ -5,7 +5,6 @@
 }
 
 :root {
-  --background-transition: 1500ms;
   --border-radius: 8px;
   --standard-icon-width: 20%;
   --initial-accent: #b6f9cd99;
@@ -36,7 +35,6 @@ a {
   background-image: url(../assets/img/backgrounds/2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  transition: background-image var(--background-transition);
 }
 
 .background {
