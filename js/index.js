@@ -82,9 +82,9 @@ function changeSong(direction) {
 }
 
 function setSong(song) {
-  const cover = song[3]? `assets/img/${song[2]}.jpg` : `assets/img/no-cover.jpg`;
+  const cover = song[3]? `./assets/img/covers/${song[2]}.jpg` : `./assets/img/covers/no-cover.jpg`;
   domItems.songCover.setAttribute('src', cover);
-  domItems.song.setAttribute('src', `assets/audio/${song[0]}.mp3`);
+  domItems.song.setAttribute('src', `./assets/audio/${song[0]}.mp3`);
   domItems.songAuthor.textContent = song[1];
   domItems.songName.textContent = song[2];
 

@@ -15,7 +15,7 @@
   <title>custom audio-player</title>
 
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="assets/img/player-logo.ico">
+  <link rel="icon" href="./assets/img/icons/player-logo.ico">
 
   <meta property="og:type" content="web-site">
   <meta property="og:locale" content="en_EN">
@@ -59,17 +59,25 @@
         </div>
 
         <div class="player__container volume">
-          <img class="icon player__volume-icon" src="assets/svg/volume.svg" alt="volume button icon">
+          <img class="icon player__volume-icon" src="./assets/svg/volume.svg" alt="volume button icon">
           <input class="player__range-volume" type="range" min="0" max="100" value="70">
           <p class="player__volume-info">70%</p>
         </div>
         <audio class="player__song" src="#"></audio>
       </div>
     </main>
-    <a class="contact" target="_blank" href="https://t.me/jaysun0">?</a>
+    <div class="contacts">
+      <a class="contacts__item" target="_blank" href="https://t.me/jaysun0">
+        <img src="./assets/img/icons/telegram-icon.svg" alt="telegram icon" class="contacts__icon">
+      </a>
+      <a class="contacts__item" target="_blank" href="https://github.com/jaysun0">
+        <img src="./assets/img/icons/github-icon.svg" alt="github icon" class="contacts__icon">
+      </a>
+      <a class="contacts__item" target="_blank" href="https://jaysuno0.github.io/rsschool-cv/">
+        <img src="./assets/img/icons/page-icon.svg" alt="curriculum vitae icon" class="contacts__icon">
+      </a>
+    </div>
   </div>
-
   <script src="js/index.js"></script>
-
 </body>
 </html>
