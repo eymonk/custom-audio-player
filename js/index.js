@@ -3,6 +3,8 @@ const domItems = {
   background: document.querySelector('.background'),
   player: document.querySelector('.player'),
 
+  playlistItems: document.querySelectorAll('.playlist__item'),
+
   playPauseBtn: document.querySelector('.play-pause'),
   playPauseIcon: document.querySelector('.play-pause__icon'),
   nextBtn: document.querySelector('.next'),
@@ -29,7 +31,6 @@ const state = {
   updateTime: 1000,
 }
 
-
 const songs = [
   ['Bonobo - Silver', 'Bonobo', 'Silver', true],
   ['Elestre - Labyrinthe', 'Elestre', 'Labyrinthe', true],
@@ -37,7 +38,6 @@ const songs = [
   ['Otto Suits - Goddamn', 'Otto Suits', 'Goddamn', false],
   ['Grey Killer - Cosmic River', 'Grey Killer', 'Cosmic River', true],
 ];
-
 
 const colors = ['#ffccd199', '#ff778499',   //red
                 '#ffd7ad99', '#ffae5899',   //orange
@@ -48,7 +48,6 @@ const colors = ['#ffccd199', '#ff778499',   //red
                 '#f2c4ff99', '#e380ff99',   //purple
                 '#ffd5eb99', '#ff80c199'];  //pink
 
-
 function play() {
   domItems.song.play();
   domItems.playPauseIcon.setAttribute('src', 'assets/svg/pause.svg');
@@ -57,7 +56,6 @@ function play() {
   return state.isOn = true;
 }
 
-
 function pause() {
   domItems.song.pause();
   domItems.playPauseIcon.setAttribute('src', 'assets/svg/play.svg');
@@ -65,7 +63,6 @@ function pause() {
   domItems.songCover.style.animationPlayState = 'paused';
   return state.isOn = false;
 }
-
 
 function changeSong(direction) {
   direction = direction? direction : 'next';
@@ -84,7 +81,6 @@ function changeSong(direction) {
   return state.isOn ? play() : pause();
 }
 
-
 function setSong(song) {
   const cover = song[3]? `assets/img/${song[2]}.jpg` : `assets/img/no-cover.jpg`;
   domItems.songCover.setAttribute('src', cover);
@@ -92,7 +88,6 @@ function setSong(song) {
   domItems.songAuthor.textContent = song[1];
   domItems.songName.textContent = song[2];
 }
-
 
 function getMinutes(time) {
   let minutes = Math.floor(time / 60);
@@ -102,13 +97,11 @@ function getMinutes(time) {
   return minutes.concat(seconds);
 }
 
-
 function changeCurrentTime() {
   domItems.rangeDuration.value = domItems.song.currentTime;
   domItems.songTime.textContent = getMinutes(domItems.song.currentTime);
   if (Number(domItems.rangeDuration.value) === state.currentDuration) changeSong();
 }
-
 
 function setDuration() {
   state.currentDuration = Math.trunc(domItems.song.duration);
@@ -116,12 +109,10 @@ function setDuration() {
   domItems.rangeDuration.setAttribute('max', `${Math.floor(domItems.song.duration)}`);
 }
 
-
 function setSongTime() {
   domItems.song.currentTime = domItems.rangeDuration.value;
   domItems.songTime.textContent = getMinutes(domItems.song.currentTime);
 }
-
 
 function setSongVolume() {
   domItems.song.volume = domItems.rangeVolume.value / 100;
@@ -135,11 +126,9 @@ function changeVolume(direction) {
   setSongVolume();
 }
 
-
 function getRandom(upTo) {
   return Math.floor(Math.random() * upTo);
 }
-
 
 function changeBackground() {
   const color = colors[getRandom(colors.length)];
@@ -147,6 +136,7 @@ function changeBackground() {
   domItems.player.style.borderColor = color;
   domItems.body.style.backgroundImage = `url(./assets/img/backgrounds/${getRandom(5)}.jpg)`;
 }
+
 
 //initial setUp
 setSong(songs[0]);
@@ -179,5 +169,15 @@ document.addEventListener('keydown', (event) => {
   else if (e === 'arrowleft') changeSong('prev');
   else if (e === 'arrowright') changeSong('next');
 })
+
+//play song from playlist
+domItems.playlistItems.forEach(song => {
+  song.addEventListener('click', () => {
+    const songNumber = parseInt(song.dataset.songNumber)
+    state.currentSong = songNumber;
+    setSong(songs[songNumber]);
+    play();
+  });
+});
 
 
