@@ -86,7 +86,7 @@ function changeSong(direction) {
 
 
 function setSong(song) {
-  cover = song[3]? `assets/img/${song[2]}.jpg` : `assets/img/no-cover.jpg`;
+  const cover = song[3]? `assets/img/${song[2]}.jpg` : `assets/img/no-cover.jpg`;
   domItems.songCover.setAttribute('src', cover);
   domItems.song.setAttribute('src', `assets/audio/${song[0]}.mp3`);
   domItems.songAuthor.textContent = song[1];
@@ -113,7 +113,7 @@ function changeCurrentTime() {
 function setDuration() {
   state.currentDuration = Math.trunc(domItems.song.duration);
   domItems.duration.textContent = getMinutes(state.currentDuration);
-  domItems.rangeDuration.setAttribute('max', Math.floor(domItems.song.duration));
+  domItems.rangeDuration.setAttribute('max', `${Math.floor(domItems.song.duration)}`);
 }
 
 
