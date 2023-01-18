@@ -1,0 +1,23 @@
+.playlist {
+    position: absolute;
+    padding: 1rem;
+    left: 0;
+    list-style: none;
+}
+
+.playlist__item {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+
+    border-radius: var(--border-radius-medium);
+    border: 3px solid var(--gray-dark);
+    background-color: var(--transparent-dark);
+    transition: transform 200ms;
+    cursor: pointer;
+}
+.playlist__item:hover {
+    transform: translateX(15px);
+}
+.playlist__item.active {
+    background-color: #000a;
+}
