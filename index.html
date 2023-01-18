@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="Daniil Kochkin">
+  <meta name="address" content="Russia, Karelia, Petrozavodsk">
+  <meta name="description" content="Custom audio player for your web page">
+  <meta name="keywords" content="audio, player, web, site, page, music, web-player, audio-player, music-player">
+
+  <title>custom audio-player</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/img/player-logo.ico">
+
+  <meta property="og:type" content="web-site">
+  <meta property="og:locale" content="en_EN">
+  <meta property="og:title" content="custom player">
+  <meta property="og:description" content="Custom audio-player for you web-page!">
+  <meta property="og:url" content="https://rolling-scopes-school.github.io/jaysuno0-JSFEPRESCHOOL/audio-player/">
+  <meta property="og:image" content="https://www.aiseesoft.com/images/resource/audio-player-for-windows-mac.jpg">
+</head>
+
+<body class="body">
+  <div class="background">
+    <main class="main">
+      <div class="player">
+        <p class="player__song-author">Author</p>
+        <p class="player__song-name">Song</p>
+        <img class="player__song-cover" src="" alt="song cover image">
+
+        <div class="player__container duration">
+          <p class="player__song-time">0:00</p>
+          <input class="player__range-duration" type="range" value="0">
+          <p class="player__duration-info">0:00</p>
+        </div>
+
+        <div class="player__container controls">
+          <button class="player__btn previous">
+            <img class="icon" src="assets/svg/prev.svg" alt="previous button icon">
+          </button>
+          <button class="player__btn play-pause">
+            <img class="icon play-pause__icon" src="assets/svg/play.svg" alt="play button icon">
+          </button>
+          <button class="player__btn next">
+            <img class="icon" src="assets/svg/next.svg" alt="next button icon">
+          </button>
+        </div>
+
+        <div class="player__container volume">
+          <img class="icon player__volume-icon" src="assets/svg/volume.svg" alt="volume button icon">
+          <input class="player__range-volume" type="range" min="0" max="100" value="70">
+          <p class="player__volume-info">70%</p>
+        </div>
+        <audio class="player__song" src="#"></audio>
+      </div>
+    </main>
+    <a class="contact" target="_blank" href="https://t.me/jaysun0">?</a>
+  </div>
+
+  <script src="js/index.js"></script>
+
+</body>
+</html>
