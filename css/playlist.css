@@ -3,6 +3,7 @@
     padding: 1rem;
     left: 0;
     list-style: none;
+    max-width: 460px;
 }
 
 .playlist__item {

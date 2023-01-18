@@ -1,5 +1,5 @@
 const domItems = {
-  body: document.querySelector('.body'),
+  body: document.querySelector('body'),
   background: document.querySelector('.background'),
   player: document.querySelector('.player'),
 
@@ -77,7 +77,6 @@ function changeSong(direction) {
   clearInterval(state.currentTimeInterval);
   setSong(songs[state.currentSong]);
   changeCurrentTime();
-  changeBackground();
   return state.isOn ? play() : pause();
 }
 
@@ -93,6 +92,8 @@ function setSong(song) {
     if (songNumber === state.currentSong) song.classList.add('active');
     else song.classList.remove('active');
   })
+
+  changeBackground();
 }
 
 function getMinutes(time) {
