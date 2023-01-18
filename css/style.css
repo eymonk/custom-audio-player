@@ -97,6 +97,9 @@ a {
 .playlist__item:hover {
   transform: translateX(15px);
 }
+.playlist__item.active {
+  background-color: #000b;
+}
 
 /****** player *****/
 .player {

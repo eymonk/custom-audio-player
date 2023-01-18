@@ -87,6 +87,12 @@ function setSong(song) {
   domItems.song.setAttribute('src', `assets/audio/${song[0]}.mp3`);
   domItems.songAuthor.textContent = song[1];
   domItems.songName.textContent = song[2];
+
+  domItems.playlistItems.forEach(song => {
+    const songNumber = parseInt(song.dataset.songNumber);
+    if (songNumber === state.currentSong) song.classList.add('active');
+    else song.classList.remove('active');
+  })
 }
 
 function getMinutes(time) {
